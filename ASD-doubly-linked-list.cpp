@@ -20,17 +20,22 @@ struct list::node {
   
 /* crea la lista vuota */
 void list::createEmpty(List& li){
-	//TO DO
+  li = new node;
+  li->info = NULL;
+  li->next = li;
+  li->prev = li;
 }
 
 /* "smantella" la lista (tranne la sentinella) */
 void list::clear(List& li){
-	//TO DO
+  li->info = NULL;
+  li->next = NULL;
+  li->prev = NULL;
 }
 
 /* restituisce true se la lista e' vuota */
 bool list::isEmpty(const List& li){
-  //TO DO
+  if(li->next==NULL) return true;
   return false;
 }
 
