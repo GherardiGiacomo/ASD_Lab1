@@ -21,70 +21,122 @@ struct list::node {
 /* crea la lista vuota */
 void list::createEmpty(List& li){
   li = new node;
-  li->info = NULL;
   li->next = li;
   li->prev = li;
 }
 
 /* "smantella" la lista (tranne la sentinella) */
 void list::clear(List& li){
-  li->info = NULL;
   li->next = NULL;
   li->prev = NULL;
 }
 
 /* restituisce true se la lista e' vuota */
 bool list::isEmpty(const List& li){
-  if(li->next==NULL) return true;
+  if(li->info==0) return true;
   return false;
 }
 
 /* restituisce la dimensione della lista */
 unsigned int list::size(const List& li){
-	//TO DO
-  return 9999;
+  unsigned int tmp = 0;
+  List cur = li->next;
+  while (cur != li) {   
+    tmp++;
+    cur= cur->next;
+  }
+  return tmp;
 }
 
 /* restituisce l'elemento in posizione pos */
 /* se pos non e corretta, solleva una eccezione di tipo string*/
 Elem list::get(unsigned int pos, const List& li){
-	//TO DO
-  return 7777;
+  if (pos <0 || pos >= size(li)) 
+  throw string("posizione non corretta");
+  List cur = li->next;
+  for(int i=0; i<pos; i++){
+    cur= cur->next;
+  }
+  return cur->info;
 }
+
 
 /* modifica l'elemento in posizione pos */
 /* se pos non e' corretta, solleva una eccezione di tipo string*/
 void list::set(unsigned int pos, Elem el, const List& li){
-	//TO DO
+  if (pos <0 || pos >= size(li))
+  throw string("posizione non corretta");
+  List cur = li->next;
+  for(int i=0; i<pos; i++){
+    cur= cur->next;
+  } 
+  cur->info = el;
 }
 
 /* inserisce l'elemento in posizione pos*/
 /*shiftando a destra gli altri elementi */
 /*se pos non e' corretta, solleva una eccezione di tipo string*/
 void list::add(unsigned int pos, Elem el, const List& li){
-	//TO DO
-}
+  if (pos < 0 || pos > size(li))
+  throw string("posizione non corretta");
+  List cur = li;
+  for(int i=0; i < pos; i++){
+    cur= cur->next;
+  }
+  List nuovalista= new node;
+  nuovalista->info=el;
+  nuovalista->prev=cur;
+  nuovalista->next=cur->next;
+  cur->next->prev=nuovalista;
+  cur->next=nuovalista;
+  }
 
 /* inserisce l'elemento alla fine della lista */
 void list::addRear(Elem el, const List& li){
-	//TO DO
+  List cur = li->prev;
+  List nuovalista= new node;
+  nuovalista->info=el;
+  nuovalista->prev=cur;
+  nuovalista->next=li;
+  cur->next=nuovalista;
+  li->prev=nuovalista;
 }
 
 /* inserisce l'elemento all'inizio della lista */
 void list::addFront(Elem el, const List& li) {
-	//TO DO
+  List cur = li->next;
+  List nuovalista= new node;
+  nuovalista->info=el;
+  nuovalista->next=cur;
+  nuovalista->prev=li;
+  cur->prev=nuovalista;
+  li->next=nuovalista;
 }
 
 /* cancella l'elemento in posizione pos dalla lista */
 /* se pos non e' corretta, solleva una eccezione di tipo string*/
 void list::removePos(unsigned int pos,const List& li){
-	//TO DO
+	if (pos < 0 || pos > size(li))
+  throw string("posizione non corretta");
+  List cur = li->next;
+  for(int i=0; i<pos; i++){
+    cur= cur->next;
+  }
+  cur->prev->next = cur->next;
+  cur->next->prev = cur->prev;
 }
 
 /* cancella tutte le occorrenze dell'elemento elem*/
 /*se presenti, dalla lista */
 void list::removeEl(Elem el,const List& li){
-	//TO DO
+  List cur = li->next;
+  for(int i =0 ; i < size(li); i++){
+    if(cur->info==el){
+      cur->prev->next = cur->next;
+      cur->next->prev = cur->prev;
+    }
+  }
+  cur=cur->next;
 }
 
 /**************************************************/
