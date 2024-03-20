@@ -33,8 +33,7 @@ void list::clear(List& li){
 
 /* restituisce true se la lista e' vuota */
 bool list::isEmpty(const List& li){
-  if(li->info==0) return true;
-  return false;
+  return li->next == li;
 }
 
 /* restituisce la dimensione della lista */
