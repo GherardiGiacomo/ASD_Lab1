@@ -61,7 +61,17 @@ Elem list::get(unsigned int pos, const List& li){
 }
 
 
-
+/* modifica l'elemento in posizione pos */
+/* se pos non e' corretta, solleva una eccezione di tipo string*/
+void list::set(unsigned int pos, Elem el, const List& li){
+  if (pos <0 || pos >= size(li))
+  throw string("posizione non corretta");
+  List cur = li->next;
+  for(int i=0; i<pos; i++){
+    cur= cur->next;
+  } 
+  cur->info = el;
+}
 
 /* inserisce l'elemento in posizione pos*/
 /*shiftando a destra gli altri elementi */
