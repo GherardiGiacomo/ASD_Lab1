@@ -1,4 +1,6 @@
-﻿ASD 23/ 24 - Laboratorio 1
+<h1> Gherardi Giacomo, Insinna Luca </h1>
+
+<h1>﻿ASD 23/ 24 - Laboratorio 1</h1>
 
 In questo laboratorio viene richiesto di implementare il tipo di dato liste realizzate con strutture doppiamente collegate, circolari, con sentinella e non ordinate.
 
