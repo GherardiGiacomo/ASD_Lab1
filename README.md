@@ -1,4 +1,4 @@
-<h1> Gherardi Giacomo, Insinna Luca </h1>
+<h3> Gherardi Giacomo, Insinna Luca </h3>
 
 <h1>﻿ASD 23/ 24 - Laboratorio 1</h1>
 
@@ -62,17 +62,4 @@ Nel file ASD-main-test.cpp , abbiamo programmato una sequenza di tests che si es
 
 g++ -Wall -std=c++14 ASD-doubly-linked-list.cpp ASD-main-test.cpp -o ASD-main-test
 
-e poi eseguirlo con ./ASD-main-test .
-
-**5 Consigli**
-
-Vi diamo alcuni consigli per riuscire al meglio questo laboratorio:
-
-- Compilare spesso il codice (meglio compilare una volta in più che una in meno ...).
-- Iniziare la codifica delle funzioni che possono essere testate, seguendo un ordine che vi permetta sempre di verificare la correttezza di quello che state implementando (ad esempio è inutile implementare la funzione size() che restitui- sce la dimensione di una lista se prima non avete implementato la funzione createEmpty() e la funzione addRear() o addFront() ).
-- Fare in modo che il codice sia leggibile e ben indentato.
-- Verificarein maniera approfondita il codice prodotto cercando di esercitare tutte le funzionalità offerte dal programma di tests manuali.
-
-**6 Consegna**
-
-Per la consegna, creare uno zip con tutti i file forniti in particolare con il file ASD-doubly-linked-list.cpp da voi modificato.
+e poi eseguirlo con ./ASD-main-test.
